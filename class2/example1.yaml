@@ -1,0 +1,11 @@
+- hosts: centos 
+  vars:
+    message: "Don't forget update kernel version"
+  tasks: 
+  - shell: "uname -r"
+    register: kernel_version
+
+  - debug:
+      msg: "Your kernel version is {{ kernel_version.stdout }}" 
+  - debug:
+      msg: "{{ message }}"     
